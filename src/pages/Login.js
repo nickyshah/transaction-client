@@ -8,7 +8,7 @@ const Login = () => {
         <Row>
             <Col className='bg-primary text-light vh-100 d-flex justify-content-center align-items-center'>
                 <div className='shadow-lg rounded p-3'>
-                    <h1>Welcone Back !</h1>
+                    <h1>Welcome Back !</h1>
                     <p>Log in to our page and take Control of your transaction</p>
                 </div>
             </Col>
