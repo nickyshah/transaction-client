@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 // import {Button} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { CustomInput } from './CustomInput';
-import { loginUser } from '../helper/axiosHelper';
+import { loginUser } from '../helper/axiosHelper.js';
 import { Alert, Spinner } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
@@ -35,8 +35,11 @@ export const LogInForm = () => {
     setIsLoding(false)
     // if login is success redirect user to dashboard
     if(result?.status === 'success'){
+      // store user in session storage
+     sessionStorage.setItem("user", JSON.stringify(result.user))
+
       // redirect user
-      navigate("/dashboard")
+      navigate('/dashboard')
     } 
 
     // else show errror message
@@ -64,7 +67,7 @@ export const LogInForm = () => {
   return (
     <Form onSubmit={handleOnSubmit}>
       {
-        resp.message && <Alert variant='danger'>
+        resp.message && <Alert variant={resp.status === 'success' ? 'success' : 'danger'}>{" "}
           {resp.message}
         </Alert>
       }
@@ -76,7 +79,7 @@ export const LogInForm = () => {
     <div className="d-grid">
     <Button variant="primary" type="submit" disabled={isLoding}>
       {
-        isLoding ? <Spinner animation="border"/> : "Submit"
+        isLoding ? <Spinner animation="border"/> : "Login"
       }
     </Button>
     </div>
