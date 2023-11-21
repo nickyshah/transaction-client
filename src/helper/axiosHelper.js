@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const rootAPi = `http://localhost:8000/api/v1`
+const rootAPi = process.env.REACT_APP_ROOTAPI
 const userApi = rootAPi + "/user"
 const transApi = rootAPi + "/transaction"
 
@@ -18,7 +18,7 @@ export const postUser = async (userObj) => {
         const {data} = await axios.post(userApi, userObj)
         return data
     } catch (error) {
-        console.log(error)
+        
         return {
             status: "error",
             message: error.message
@@ -57,7 +57,7 @@ export const postTrans = async (transObj) => {
         })
         return data
     } catch (error) {
-        console.log(error)
+        
         return {
             status: "error",
             message: error.message
@@ -105,7 +105,7 @@ export const deleteTrans = async (idArg) => {
         })
         return data
     } catch (error) {
-        console.log(error)
+        
         return {
             status: "error",
             message: error.message

@@ -19,10 +19,10 @@ export const TransForm = ({ getAllTrans }) => {
     }
     const handleOnSubmit = async (e) => {
         e.preventDefault()
-        // console.log(form)
+       
 
         const result = await postTrans(form)
-        console.log(result)
+       
         setresp(result)
         if (result.status === "success") {
             getAllTrans()
@@ -54,13 +54,13 @@ export const TransForm = ({ getAllTrans }) => {
         },
     ]
     return (
-        <div className='mt-5'>
+        <div className='mt-1'>
             {
                 resp.message && <Alert variant={resp.status === "success" ? "success" : "danger"}>{" "}
                     {resp.message}
                 </Alert>
             }
-            <Form onSubmit={handleOnSubmit} className='shadow-lg border rounded p-3 bg-secondary'>
+            <Form onSubmit={handleOnSubmit} className='shadow-lg border rounded p-3 '>
 
                 <Row>
                     <Col md={3}>

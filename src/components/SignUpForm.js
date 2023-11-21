@@ -31,7 +31,7 @@ const handleOnChange = e => {
 
 const handleOnSubmit = async (e) => {
   e.preventDefault()
-  console.log(form)
+  
 const {confirmPassword, ...rest} = form
 
   // lets check the password if they match 
@@ -83,7 +83,7 @@ if(confirmPassword !== rest.password){
     value:form.confirmPassword
     }
   ]
-  // console.log(form)
+ 
 
   return (
     <Form onSubmit={handleOnSubmit}>

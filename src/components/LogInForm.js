@@ -27,11 +27,11 @@ export const LogInForm = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault()
-    // console.log(form)
+    
     setIsLoding(true)
     setresp({})
     const result = await loginUser(form)
-    console.log(result)
+    
     setIsLoding(false)
     // if login is success redirect user to dashboard
     if(result?.status === 'success'){

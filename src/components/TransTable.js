@@ -25,9 +25,9 @@ const handleOnAllSelect = e => {
   const {checked} = e.target
   if (checked) {
     // add all the ids to delete
-    console.log(transList)
+    
     const ids = transList.map(({_id}) => _id)
-    console.log(ids)
+  
     setIdsToDelete(ids)
   } else{
     setIdsToDelete([])
